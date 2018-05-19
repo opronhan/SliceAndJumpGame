@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212976368138044064}
   - component: {fileID: 50457386538491076}
   - component: {fileID: 61533898892665334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: terrain-ground-border-bottom
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

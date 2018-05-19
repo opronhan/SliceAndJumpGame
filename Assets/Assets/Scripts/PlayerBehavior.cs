@@ -7,16 +7,20 @@ public class PlayerBehavior : MonoBehaviour {
     public Vector3 speed;
     protected Animator animator;
     public Vector2 movingForce;
-    public Vector2 jumpForce;
+    public Vector3 jumpForce;
     public Rigidbody2D rb;
+    public Transform groundcheck;
+    public LayerMask charmask;
+    public bool grounded;
     // Use this for initialization
     void Start () {
         speed = new Vector3(3, 0 ,0);
         movingForce = new Vector2(10, 0);
-        jumpForce = new Vector3(0, 15);
+        jumpForce = new Vector3(0, 10 ,0);
         animator = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-	}
+        groundcheck = GameObject.Find("groundcheck").GetComponent<Transform>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,6 +39,7 @@ public class PlayerBehavior : MonoBehaviour {
         {
             Debug.Log("Jump");
             animator.SetInteger("AnimationState", 4);
+            jump();
         }
         else
         {
@@ -47,11 +52,29 @@ public class PlayerBehavior : MonoBehaviour {
 
 
     }
+  
+    //Những hàm xử lý va chạm giữa các object
+    void OnCollisionEnter(Collision collision)
+    {
+    
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+       
+    }
+    void OnCollisionExit(Collision collision)
+    {
+       
+    }
+
+    //close
 
     //Các tính toán, tương tác vật lý, chúng ta sẽ đặt trong hàm này, ví dụ như AddForce, etc
     void FixedUpdate()
     {
         Vector3 localScale = transform.localScale;
+        grounded = Physics2D.OverlapCircle(groundcheck.position, 0.5f, charmask);
         //Translation
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -70,21 +93,23 @@ public class PlayerBehavior : MonoBehaviour {
                 localScale.x *= -1.0f;
             }
         }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            
-                rb.AddForce(jumpForce);
-                
-            
-            
-        }
+      
         transform.localScale = localScale;
         //close
 
     }
-    
-            //Hàm này được gọi khi có hai đối tượng va chạm nhau.
-
-            //Hàm này được gọi khi có hai đối tượng va chạm nhau, trong đó có 1 hoặc cả hai đối tượng là Trigger.
-
+    void jump()
+    {
+        if (grounded)
+        {
+            rb.velocity = jumpForce;
         }
+    }
+   
+   
+           
+       
+   
+
+
+}
