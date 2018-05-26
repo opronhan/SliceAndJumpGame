@@ -13,13 +13,16 @@ public class JumpScript : MonoBehaviour {
     void Start () {
         animator = gameObject.GetComponent<Animator>();
         jumpForce = new Vector3(0, 8, 0);
+        rb = GetComponent<Rigidbody2D>();
         groundcheck = GameObject.Find("enemygroundcheck").GetComponent<Transform>();
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         grounded = Physics2D.OverlapCircle(groundcheck.position, 0.5f, charmask);
+        animator.SetBool("Walk", true);
         jump();
+   
     }
     void jump()
     {
@@ -28,4 +31,5 @@ public class JumpScript : MonoBehaviour {
             rb.velocity = jumpForce;
         }
     }
+  
 }

@@ -53,17 +53,17 @@ public class PlayerBehavior : MonoBehaviour {
 
     }
   
-    //Những hàm xử lý va chạm giữa các object
-    void OnCollisionEnter(Collision collision)
+    //Những hàm xử lý va chạm giữa player voi cac object
+    void OnCollisionEnter2D(Collision2D target)
     {
     
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionStay2D(Collision2D target)
     {
        
     }
-    void OnCollisionExit(Collision collision)
+    void OnCollisionExit2D(Collision2D target)
     {
        
     }
@@ -96,6 +96,7 @@ public class PlayerBehavior : MonoBehaviour {
       
         transform.localScale = localScale;
         //close
+
 
     }
     //ham nhay
