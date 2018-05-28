@@ -67,7 +67,9 @@ public class GamePlayController : MonoBehaviour {
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); //Open connection to the database.
         IDbCommand dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "INSERT INTO player (score, name) VALUES ("+int.Parse(score.text)+", '"+inputname.text+"');";
+        
+        String sqlQuery = "INSERT INTO player (score, name) VALUES ("+int.Parse(score.text)+", '"+inputname.text+"');";
+       
         dbcmd.CommandText = sqlQuery;
         dbcmd.ExecuteNonQuery();
         dbconn.Close();

@@ -44,12 +44,14 @@ public class MainMenuController : MonoBehaviour {
     }
     public void HighScorePanel()
     {
+        Time.timeScale = 0f;
         highscorePanel.SetActive(true);
         scoretext = GameObject.Find("ScoreField").GetComponent<Text>();
         scoretext.text = scoretxt;
     }
     public void TurnOffHighScorePanel()
     {
+        Time.timeScale = 1f;
         highscorePanel.SetActive(false);
     }
     public void ClickExit()

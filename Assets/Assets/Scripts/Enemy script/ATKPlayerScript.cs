@@ -7,6 +7,7 @@ public class ATKPlayerScript : MonoBehaviour {
     private Rigidbody2D rb;
     public Transform groundcheck;
     public bool grounded;
+    public AudioSource slimeAtack;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,6 +15,7 @@ public class ATKPlayerScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator = gameObject.GetComponent<Animator>();
+        slimeAtack = GameObject.Find("SlimeAttack").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class ATKPlayerScript : MonoBehaviour {
     {
         if(target.gameObject.tag == "Player" && !Input.GetKey(KeyCode.Space))
         {
+                slimeAtack.Play();
                 animator.SetTrigger("Attack");
                 Destroy(target.gameObject, 1);
         }

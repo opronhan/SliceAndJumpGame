@@ -7,6 +7,8 @@ public class PlayerAtack : MonoBehaviour {
     public Transform groundcheck;
     public LayerMask charmask;
     public bool grounded;
+    public AudioSource slice;
+    public AudioSource hitEnemy;
     [SerializeField]
     private Text score;
     private int scorecount = 0;
@@ -15,6 +17,8 @@ public class PlayerAtack : MonoBehaviour {
         collider = GetComponent<BoxCollider2D>();
         score = GameObject.Find("Score").GetComponent<Text>();
         groundcheck = GameObject.Find("playergroundcheck").GetComponent<Transform>();
+        slice = GameObject.Find("Slice Sound").GetComponent<AudioSource>();
+        hitEnemy = GameObject.Find("HitEnemySound").GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -23,7 +27,7 @@ public class PlayerAtack : MonoBehaviour {
         {
             
             collider.enabled = true;
-
+            slice.Play();
 
         }
         else
@@ -39,6 +43,7 @@ public class PlayerAtack : MonoBehaviour {
     {
         if (target.gameObject.tag == "Enemy")
         {
+            hitEnemy.Play();
             Destroy(target.gameObject,2);
             scorecount += 200;
         }
