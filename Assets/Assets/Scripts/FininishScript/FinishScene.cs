@@ -17,7 +17,7 @@ public class FinishScene : MonoBehaviour {
     {
         if(target.gameObject.tag == "Player")
         {
-            GameObject.Find("Gameplay Controller").GetComponent<GamePlayController>().PlayerDied();
+            GameObject.Find("Gameplay Controller").GetComponent<GamePlayController>().PlayerFinish();
         }
     }
 }

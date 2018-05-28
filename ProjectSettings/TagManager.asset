@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerCol
   - Dead
+  - ScoreList
   layers:
   - Default
   - TransparentFX

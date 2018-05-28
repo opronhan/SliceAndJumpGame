@@ -31,6 +31,5 @@ public class ATKPlayerScript : MonoBehaviour {
         {
             GameObject.Find("Gameplay Controller").GetComponent<GamePlayController>().PlayerDied();
         }
-        
     }
 }

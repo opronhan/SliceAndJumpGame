@@ -267,6 +267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59edf849602a2ee4d8c46e546f529461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundcheck: {fileID: 0}
+  charmask:
+    serializedVersion: 2
+    m_Bits: 0
+  grounded: 0
+  score: {fileID: 0}
 --- !u!212 &212498200053895258
 SpriteRenderer:
   m_ObjectHideFlags: 1
