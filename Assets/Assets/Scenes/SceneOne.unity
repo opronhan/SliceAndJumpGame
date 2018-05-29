@@ -1555,6 +1555,11 @@ Prefab:
       propertyPath: hitEnemy
       value: 
       objectReference: {fileID: 1587739905}
+    - target: {fileID: 61609556673757214, guid: 1c199e72261662e4989fc7cf587ed19b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c199e72261662e4989fc7cf587ed19b, type: 2}
   m_IsPrefabParent: 0

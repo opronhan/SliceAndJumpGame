@@ -22,17 +22,26 @@ public class ATKPlayerScript : MonoBehaviour {
     void Update () {
 		
 	}
-    private void OnCollisionEnter2D(Collision2D target)
+    public void OnCollisionEnter2D(Collision2D target)
     {
         if(target.gameObject.tag == "Player" && !Input.GetKey(KeyCode.Space))
         {
-                slimeAtack.Play();
-                animator.SetTrigger("Attack");
-                Destroy(target.gameObject, 1);
+            Destroy(target.gameObject, 1);
+            StartCoroutine(playerDie());
         }
-        if (GameObject.FindGameObjectWithTag("Player") == null)
-        {
-            GameObject.Find("Gameplay Controller").GetComponent<GamePlayController>().PlayerDied();
-        }
+          
     }
+    IEnumerator playerDie()
+    {
+        //This is a coroutine
+        slimeAtack.Play();
+        animator.SetTrigger("Attack");
+        
+        
+        yield return new WaitForSeconds(2);    //Wait one frame
+
+        GameObject.Find("Gameplay Controller").GetComponent<GamePlayController>().PlayerDied();
+    }
+
 }
+

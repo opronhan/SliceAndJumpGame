@@ -43,8 +43,8 @@ public class PlayerAtack : MonoBehaviour {
     {
         if (target.gameObject.tag == "Enemy")
         {
+            Destroy(target.gameObject);
             hitEnemy.Play();
-            Destroy(target.gameObject,2);
             scorecount += 200;
         }
         score.text = "" + scorecount;

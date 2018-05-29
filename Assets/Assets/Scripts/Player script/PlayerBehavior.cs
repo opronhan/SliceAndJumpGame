@@ -32,12 +32,12 @@ public class PlayerBehavior : MonoBehaviour {
         else if (Input.GetKey(KeyCode.Space) && grounded)
         {
             Debug.Log("Atack");
-            animator.SetInteger("AnimationState", 2);
+            animator.SetTrigger("Attack");
         }
         else if (Input.GetKey(KeyCode.UpArrow) && grounded)
         {
             Debug.Log("Jump");
-            animator.SetInteger("AnimationState", 4);
+            animator.SetTrigger("Jump");
             jump();
         }
         else
